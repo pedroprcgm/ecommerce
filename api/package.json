@@ -1,0 +1,35 @@
+{
+  "name": "calendar-api",
+  "version": "1.0.0",
+  "description": "API REST for Calendar application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV='development' nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedroprcgm/calendar.git"
+  },
+  "author": "Pedro Guerreiro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pedroprcgm/calendar/issues"
+  },
+  "homepage": "https://github.com/pedroprcgm/calendar#readme",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "chai": "^4.1.2",
+    "consign": "^0.1.6",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "express-boom": "^2.0.0",
+    "jsonwebtoken": "^8.2.1",
+    "mysql2": "^1.5.3",
+    "nodemon": "^1.17.4",
+    "sequelize": "^4.37.8",
+    "sequelize-cli": "^4.0.0"
+  }
+}
