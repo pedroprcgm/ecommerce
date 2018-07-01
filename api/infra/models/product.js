@@ -6,7 +6,6 @@ module.exports = (sequelize, DataTypes) => {
         price: DataTypes.FLOAT
     }, {});
     product.associate = function (models) {
-        console.log(models)
         product.belongsTo(models.category);
     };
     return product;

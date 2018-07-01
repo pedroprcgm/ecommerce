@@ -26,7 +26,7 @@ module.exports = () => {
         }
     });
 
-    sequelize.sync();
+    // sequelize.sync();
 
     return db;
 };
