@@ -1,7 +1,6 @@
 const { Router } = require('express'),
     router = Router(),
     product = require('../app/product');
- 
 
 /** 
  * @desc Get all products
@@ -9,12 +8,40 @@ const { Router } = require('express'),
  * @return Error - Status 500
  */
 router.get('/', (req, res, next) => {
-    
-    product.get(req.models)
-        .then( products => res.send(products))
-        .catch( err => {
-            if (err.code === 400) res.boom.badRequest(err.msg);
-            else res.boom.badImplementation(err.err);
+
+    product
+        .get(req.models)
+        .then(products => res.send(products))
+        .catch(err => {
+            if (err.code === 400) { 
+                res.boom.badRequest(err.msg);
+            } else {
+                res.boom.badImplementation(err.err);
+            }
+        });
+});
+
+/**
+ * @desc 
+ * @return
+ */
+router.get('/search/:value', (req, res, next) => {
+
+    product
+        .search(req.models, {
+            value: req.params.value,
+            order: req.query.order,
+            size: req.query.size,
+            page: req.query.page,
+            desc: req.query.desc
+        })
+        .then(products => res.send(products))
+        .catch(err => {
+            if (err.code === 400) { 
+                res.boom.badRequest(err.msg);
+            } else {
+                res.boom.badImplementation(err.err);  
+            } 
         });
 });
 
