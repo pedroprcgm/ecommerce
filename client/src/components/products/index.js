@@ -3,20 +3,32 @@ import axios from 'axios';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import PubSub from 'pubsub-js';
 
-class Products extends Component {
+const baseUrl = 'http://localhost:3000/api/product';
 
+class Products extends Component {
     constructor() {
         super();
-        this.state = { products: [], all: [] };
+        this.state = { products: [], total: 0, pageControl: { size: 1024, current: 1 } };
         this.getProducts = this.getProducts.bind(this);
         this.applySearch = this.applySearch.bind(this);
     }
 
-    getProducts() {
-        axios.get('http://localhost:3000/api/product')
+    getProducts(searchText) {
+
+        const url = searchText
+            ? baseUrl.concat('/search/', searchText) 
+            : baseUrl;
+
+        axios
+            .get(url, {
+                params: {
+                    page: this.state.pageControl.current,
+                    size: this.state.pageControl.size
+                }
+            })
             .then(response => response.data)
-            .then(products => this.setState({ products: products, all: products }))
-            .catch(console.log);
+            .then(responseData => this.setState({ products: responseData.products, total: responseData.length }))
+            .catch(console.log); // TODO: fix error case
     }
 
     componentDidMount() {
@@ -25,12 +37,7 @@ class Products extends Component {
     }
 
     applySearch(name, data) {
-        if(!data.value) {
-            this.setState({ products: this.state.all });
-        } else {
-            var _filtered = this.state.products.filter(product => product.name.toLowerCase().indexOf(data.value) > -1);
-            this.setState({ products: _filtered });
-        }
+        this.getProducts(data.value);
     }
 
     render() {
@@ -38,10 +45,12 @@ class Products extends Component {
             <ListGroup>
                 {
                     this.state.products.map(product => {
-                        return <ListGroupItem key={product.id}> {product.name} </ListGroupItem>
+                        return <ListGroupItem key={product.id}> # {product.id} - {product.name} </ListGroupItem>
                     })
                 }
             </ListGroup>
+
+
         );
     }
 }
