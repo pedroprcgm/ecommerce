@@ -10,7 +10,10 @@ const { Router } = require('express'),
 router.get('/', (req, res, next) => {
 
     product
-        .get(req.models)
+        .get(req.models, {
+            page: req.query.page,
+            size: req.query.size
+        })
         .then(products => res.send(products))
         .catch(err => {
             if (err.code === 400) { 

@@ -5,14 +5,28 @@ const helper = {};
 // Defaults to query
 const DEFAULT_PAGE_SIZE = 24;
 const DEFAULT_COLUMN_ORDER = 'id';
+const DEFAULT_ORDER = 'ASC';
 
 /**
  * @desc Get all products
  * @param {*} model 
  */
-helper.getAll = async (model) => {
+helper.getAll = async (model, parameters) => {
 
-    const productList = await model.findAll()
+    const filter = {
+        order: [[DEFAULT_COLUMN_ORDER, DEFAULT_ORDER]],
+    };
+
+    if (parameters.page) {
+        parameters.page = parameters.page > 1 ? parameters.page - 1 : 0;
+        parameters.size = parameters.size ? parseInt(parameters.size) : DEFAULT_PAGE_SIZE;
+
+        filter.offset = parameters.page * parameters.size;
+        filter.limit = parameters.size;
+    }
+
+    const productList = await model
+        .findAll(filter)
         .then(productList => {
             return productList;
         })
@@ -75,6 +89,10 @@ helper.search = async (model, params) => {
  * @param {*} value 
  */
 helper.count = async (model, value) => {
+
+    if (!value) {
+        value = '';
+    }
 
     const count = await model
         .count({

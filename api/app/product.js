@@ -7,16 +7,24 @@ const product = {};
  * 
  * @param {*} models 
  */
-product.get = (models) => {
+product.get = (models, parameters) => {
 
     return new Promise(async (resolve, reject) => {
 
-        const products = await productHelper.getAll(models.product);
+        try {
+            const products = await productHelper.getAll(models.product, parameters);
+            const totalProducts = await productHelper.count(models.product);
 
-        if (products) {
-            resolve(products);
-        } else {
-            reject(errorHandler.internalServerError());
+            if (products) {
+                resolve({
+                    products: products,
+                    total: totalProducts
+                });
+            } else {
+                reject(errorHandler.internalServerError());
+            }
+        } catch (error) {
+            reject(errorHandler.internalServerError(error));
         }
     });
 };
@@ -36,8 +44,8 @@ product.search = (models, parameters) => {
             resolve({
                 products: products,
                 total: totalProducts
-            });            
-        } catch(error) {
+            });
+        } catch (error) {
             reject(errorHandler.internalServerError(error));
         }
     });
