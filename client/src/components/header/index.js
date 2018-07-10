@@ -14,14 +14,12 @@ class Header extends Component {
 
     // Make the search by input value
     doSearch() {
-        this.setState({ search: this.state.search });
-        this.pubSearch();
+        this.setState({ search: this.state.search }, this.pubSearch);        
     }
 
     // Clear input value 
     clearSearch() {
-        this.setState({ search: '' });
-        this.pubSearch();
+        this.setState({ search: '' }, this.pubSearch);        
     }
 
     // Publish search done
