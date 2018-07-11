@@ -1,0 +1,15 @@
+body {
+  font-weight: lighter; }
+
+a,
+input,
+h1, h2, h3, h4 {
+  font-weight: lighter;
+  color: #cacaca; }
+
+input:hover,
+a:hover,
+a:focus {
+  outline: none;
+  text-decoration: none;
+  color: #cacaca; }

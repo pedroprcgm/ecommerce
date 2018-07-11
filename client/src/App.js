@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+import NavbarTop from './components/navbar';
 import Header from './components/header';
-import Search from './components/search';
 import Products from './components/products';
 
 class App extends Component {
@@ -9,8 +8,8 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Header />       
-                <Search search="pass here search value"/>
+                <NavbarTop />       
+                <Header title="teste"/>
                 <Products />
             </div>
         );

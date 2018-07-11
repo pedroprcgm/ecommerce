@@ -1,0 +1,59 @@
+@import 'variables.scss';
+
+.navbar {
+    width: 100%;
+    background-color: #fcfcfc;
+    margin-bottom: 0px;
+
+    .navbar-brand {
+        color: #4e3b28;
+        font-size: 1.5em;
+        font-weight: lighter;
+    }
+
+    .navbar-nav { 
+        li {
+            a,
+            a:hover {
+                color: $text-default-color !important;
+            }
+        }
+    }
+
+    .nav-right {
+        width: 30%;
+
+        > li {
+            width: 100%;
+        }
+    }
+
+    .input-search-wrapper {
+        width: 100%;
+        float: right;
+
+        .search-input {
+            border: $border-input;
+            width: 100%;
+            border-radius: 20px;
+            padding-left: 25px;
+        }
+
+        .search-input:focus,
+        .search-input:hover {
+            color: initial;
+            outline: none;
+            box-shadow: none;
+        }
+
+        .search-icon {
+            @extend %input-icon-position;
+            transform: translate(10px, 5px);            
+        }
+
+        .clear-icon {
+            @extend %input-icon-position;
+            transform: translate(-20px, 5px);              
+        }
+    }
+}

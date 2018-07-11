@@ -1,0 +1,21 @@
+@import 'variables.scss';
+
+body {
+    font-weight: lighter;
+}
+
+
+a,
+input,
+h1, h2, h3, h4 {
+    font-weight: lighter;
+    color: $text-default-color;
+}
+
+input:hover,
+a:hover,
+a:focus {
+    outline: none;
+    text-decoration: none;
+    color: $text-default-color;
+}
