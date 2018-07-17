@@ -1,10 +1,16 @@
+@import 'variables.scss';
 
 .header-wrapper {
     background-color: #edecf0;
+
+    .container {
+        @extend %container-config;
+    }
 
     .title {
         color: #676384;
         margin-top: 20px;
         margin-bottom: 20px;        
+        font-weight: lighter;
     }
 }

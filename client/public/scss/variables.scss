@@ -8,3 +8,9 @@ $border-input: 1px solid #ececec;
 }
 
 $text-default-color: #cacaca;
+$text-main-color: #000;
+
+%container-config {
+    width: 95vw;
+    max-width: 95vw;
+}

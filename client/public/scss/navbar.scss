@@ -5,6 +5,10 @@
     background-color: #fcfcfc;
     margin-bottom: 0px;
 
+    .container {
+        @extend %container-config;
+    }
+
     .navbar-brand {
         color: #4e3b28;
         font-size: 1.5em;

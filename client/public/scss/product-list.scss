@@ -1,3 +1,4 @@
+@import 'variables.scss';
 
 .product-list-wrapper {
     background-color: #f7f7f7;
@@ -5,11 +6,12 @@
     .container {
         padding-left: 30px;
         padding-right: 30px;
+        max-width: 80vw;
     }
 
     .product-count {
         display: inline-block;
-        color: #a7a7a7;        
+        color: $text-default-color;        
         padding-bottom: 7px;
         border-bottom: 2px solid #e6d2a6;
         margin-bottom: 35px;
@@ -21,14 +23,14 @@
         float: right;
 
         li a {
-            color: #a7a7a7;
+            color: $text-default-color;
             background-color: transparent;            
             border: none;
             border: 1px solid transparent;
         }
         
         li:not(.disabled):not(.active) a:hover {
-            color: #a7a7a7;
+            color: $text-default-color;
             background-color: #fff;
             border-color: #fff;
         }
@@ -39,7 +41,7 @@
         }
         li.active a:hover,
         li.active a:focus, {
-            color: #a7a7a7;
+            color: $text-default-color;
         }
 
         li.disabled a,
