@@ -1,12 +1,15 @@
 @import 'variables.scss';
 
+$item-height: 7em;
+$item-padding: 10px;
+$item-content-height: calc( #{$item-height} - #{$item-padding} * 2); 
+
 .product-item {
     list-style: none;
     width: 100%;
-    background-color: #fff;
-    border-bottom: 1px solid #cacaca;
-    padding: 10px;
-    height: 7em;
+    background-color: #fff;    
+    padding: $item-padding;
+    height: $item-height;
 
     > * {
         padding-left: 0px !important;
@@ -18,7 +21,7 @@
 
         img {
             width: 7em;
-            height: calc(7em - 20px);
+            height: $item-content-height;
         }
     }
 
@@ -28,17 +31,19 @@
         vertical-align: middle;
 
         .item-name {
+            font-size: 1.1em;
             color: $text-main-color;
         }
 
         .item-description {
-            font-size: .9em;
             color: $text-default-color;
         }
     }
 
     .price-wrapper {
         vertical-align: middle;
+        line-height: $item-content-height;
+        height: $item-content-height;
         float: right;
 
         .old-price {
@@ -51,4 +56,8 @@
         }
     }
 
+}
+
+.product-item:not(:last-child) {
+    border-bottom: 1px solid #eaeaea;
 }

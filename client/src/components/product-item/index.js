@@ -14,7 +14,7 @@ class ProductItem extends Component {
                     </div>
                     <div className="product-info">
                         <p className="item-name">{this.props.item.name}</p>
-                        <span className="item-description">{this.props.item.description}</span>
+                        <span className="item-description">{this.props.item.category.name} - {this.props.item.description}</span>
                     </div>
                 </div>
                 <div className="col-xs-6 col-sm-3">
