@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
 import Pagination from 'react-js-pagination';
 import PubSub from 'pubsub-js';
 import { BASE_URL, DEFAULT_PAGE_SHOW } from '../../defaults';
+import ProductItem from '../product-item';
 
 const productUrl = BASE_URL.concat('/api/product');
 
-class Products extends Component {
+class ProductList extends Component {
     constructor() {
         super();
         this.state = {
@@ -63,7 +64,7 @@ class Products extends Component {
 
     render() {
         return (
-            <div className="products-wrapper">
+            <div className="product-list-wrapper">
                 <div className="container">
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-12">
@@ -73,7 +74,7 @@ class Products extends Component {
                             <ListGroup>
                                 {
                                     this.state.products.map(product => {
-                                        return <ListGroupItem key={product.id}> # {product.id} - {product.name} </ListGroupItem>
+                                        return <ProductItem item={product} key={product.id}/>
                                     })
                                 }
                             </ListGroup>
@@ -93,4 +94,4 @@ class Products extends Component {
     }
 }
 
-export default Products;
+export default ProductList;

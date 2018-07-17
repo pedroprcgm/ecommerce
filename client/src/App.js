@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavbarTop from './components/navbar';
 import Header from './components/header';
-import Products from './components/products';
+import ProductList from './components/product-list';
 
 class App extends Component {
 
@@ -10,7 +10,7 @@ class App extends Component {
             <div>
                 <NavbarTop />       
                 <Header title="teste"/>
-                <Products />
+                <ProductList />
             </div>
         );
     }
