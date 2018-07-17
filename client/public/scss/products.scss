@@ -14,6 +14,38 @@
         border-bottom: 2px solid #e6d2a6;
         margin-bottom: 35px;
         margin-top: 35px;
-        text-transform: uppercase;
+        text-transform: uppercase; 
+    }
+
+    .pagination {
+        float: right;
+
+        li a {
+            color: #a7a7a7;
+            background-color: transparent;            
+            border: none;
+            border: 1px solid transparent;
+        }
+        
+        li:not(.disabled):not(.active) a:hover {
+            color: #a7a7a7;
+            background-color: #fff;
+            border-color: #fff;
+        }
+
+        li.active a {
+            border-color: #ebebeb;
+            background-color: #fff;
+        }
+        li.active a:hover {
+            color: #a7a7a7;
+        }
+
+        li.disabled a,
+        li.disabled a:hover {
+            color: #e6e4e4;
+            background-color: transparent;
+            border-color: transparent;
+        }
     }
 }
