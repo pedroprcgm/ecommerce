@@ -32,3 +32,6 @@ node_modules
 
 # VS Code configs
 .vscode
+
+# CSS
+client/public/css/
