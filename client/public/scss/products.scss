@@ -37,7 +37,8 @@
             border-color: #ebebeb;
             background-color: #fff;
         }
-        li.active a:hover {
+        li.active a:hover,
+        li.active a:focus, {
             color: #a7a7a7;
         }
 
