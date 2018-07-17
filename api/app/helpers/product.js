@@ -11,7 +11,7 @@ const DEFAULT_ORDER = 'ASC';
  * @desc Get all products
  * @param {*} model 
  */
-helper.getAll = async (model, parameters) => {
+helper.getAll = async (models, parameters) => {
 
     const filter = {
         order: [[DEFAULT_COLUMN_ORDER, DEFAULT_ORDER]],
@@ -25,12 +25,16 @@ helper.getAll = async (model, parameters) => {
         filter.limit = parameters.size;
     }
 
-    const productList = await model
+    filter.include = [{
+        model: models.category
+    }];
+    
+    const productList = await models.product
         .findAll(filter)
         .then(productList => {
             return productList;
         })
-        .catch(err => { throw Error(err) });
+        .catch(err => { console.log(err); throw Error(err); });
     return productList;
 };
 
@@ -55,10 +59,10 @@ const _prepareParameters = (params) => {
  * @param {*} model 
  * @param {*} parameters 
  */
-helper.search = async (model, params) => {
+helper.search = async (models, params) => {
     const parameters = _prepareParameters(params);
 
-    const products = await model
+    const products = await models.product
         .findAll({
             where: {
                 [Op.or]: [{
@@ -73,7 +77,10 @@ helper.search = async (model, params) => {
             },
             order: [[parameters.order, parameters.desc]],
             offset: parameters.page * parameters.size,
-            limit: parameters.size
+            limit: parameters.size,
+            include: [{
+                model: models.category
+            }]
         })
         .then(products => {
             return products;

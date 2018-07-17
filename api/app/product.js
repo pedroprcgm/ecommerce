@@ -12,7 +12,7 @@ product.get = (models, parameters) => {
     return new Promise(async (resolve, reject) => {
 
         try {
-            const products = await productHelper.getAll(models.product, parameters);
+            const products = await productHelper.getAll(models, parameters);
             const totalProducts = await productHelper.count(models.product);
 
             if (products) {
@@ -39,8 +39,9 @@ product.search = (models, parameters) => {
     return new Promise(async (resolve, reject) => {
 
         try {
-            const products = await productHelper.search(models.product, parameters);
+            const products = await productHelper.search(models, parameters);
             const totalProducts = await productHelper.count(models.product, parameters.value);
+            
             resolve({
                 products: products,
                 total: totalProducts
