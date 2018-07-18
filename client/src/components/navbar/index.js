@@ -50,7 +50,7 @@ class NavbarTop extends Component {
                             <li className="input-search-wrapper">
                                 <i className="glyphicon glyphicon-search search-icon"></i>
                                 <input type="text" className="search-input" placeholder="Pesquisar" value={this.state.search} onChange={this.handleChange} onKeyDown={e => e.keyCode === 13 ? this.doSearch() : ''} />
-                                <i onClick={this.clearSearch} className="glyphicon glyphicon-remove-sign clear-icon"></i>
+                                <i onClick={this.clearSearch} className="glyphicon glyphicon-remove-sign clear-icon pointer"></i>
                             </li>
                         </ul>
                     </div>

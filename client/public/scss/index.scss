@@ -14,3 +14,7 @@ a:focus {
     text-decoration: none;
     color: $text-default-color;
 }
+
+.pointer:hover {
+    cursor: pointer;
+}

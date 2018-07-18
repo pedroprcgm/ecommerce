@@ -8,7 +8,7 @@ $item-content-height: calc( #{$item-height} - #{$item-padding} * 2);
     list-style: none;
     background-color: #fff;    
     padding: $item-padding;
-    height: $item-height;
+    height: auto;
 
     > * {
         padding-left: 0px !important;
@@ -17,18 +17,21 @@ $item-content-height: calc( #{$item-height} - #{$item-padding} * 2);
 
     .image-wrapper {
         display: inline-block;
+        width: 100%;
 
         img {
-            width: 7em;
+            width: 49%;
             height: $item-content-height;
+        }
+        img:nth-child(even) {
+            margin-left: 1%;
+        }
+        img:nth-child(1n + 3) {
+            margin-top: 1%;
         }
     }
 
     .product-info {
-        display: inline-block;
-        padding-left: .5em;
-        vertical-align: middle;
-
         .item-name {
             font-size: 1.1em;
             color: $text-main-color;
@@ -40,22 +43,67 @@ $item-content-height: calc( #{$item-height} - #{$item-padding} * 2);
     }
 
     .price-wrapper {
-        vertical-align: middle;
-        line-height: $item-content-height;
-        height: $item-content-height;
-        float: right;
-
         .old-price {
             color: $text-aux-color;
             text-decoration: line-through;
         }
-        
         .promo-price {
             color: $text-main-color;
         }
     }
 
 }
+
+@media (min-width: 768px) {
+    .product-item {
+        .product-info { 
+            margin-top: calc(#{$item-content-height} - 20px);
+        }
+
+        .image-wrapper {
+            img {
+                width: 48%;
+            }
+            img:nth-child(even) {
+                margin-left: 2%;
+            }
+            img:nth-child(1n + 3) {
+                margin-top: 2%;
+            }
+        }
+
+        .price-wrapper {
+            margin-top: calc(#{$item-content-height} - 20px);
+        }
+    }
+}
+
+@media (min-width: 1140px) {
+    .product-item {
+        padding: $item-padding;
+        height: $item-height;
+
+        .product-info { 
+            height: 100%;
+            line-height: 100%;
+            vertical-align: middle;
+        }
+        .image-wrapper {
+            img {
+                width: 7em;
+                margin-left: 0px;
+                margin-top: 0px;
+            }
+        }
+
+        .price-wrapper {
+            height: $item-content-height;
+            line-height: $item-content-height;
+            vertical-align: middle;
+        }
+    }
+}
+
 
 .product-item:not(:last-child) {
     border-bottom: 1px solid #eaeaea;
