@@ -2,6 +2,7 @@
 
 .product-list-wrapper {
     background-color: #f7f7f7;
+    min-height: calc(100vh - 52px - 79px);
 
     .container {
         padding-left: 30px;
