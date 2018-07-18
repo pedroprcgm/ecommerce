@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import PubSub from 'pubsub-js';
 
 class NavbarTop extends Component {
@@ -33,23 +32,30 @@ class NavbarTop extends Component {
     }
 
     render() {
-        return (
-            <Navbar>
-                <Navbar.Header>
-                    <Navbar.Brand>
-                        <a href="#/">natramm</a>
-                    </Navbar.Brand>
-                </Navbar.Header>
-                <Nav className="pull-right nav-right">
-                    <NavItem>
-                        <span className="input-search-wrapper">
-                            <i className="glyphicon glyphicon-search search-icon"></i>
-                            <input type="text" className="search-input" placeholder="Pesquisar" value={this.state.search} onChange={this.handleChange} onKeyDown={e => e.keyCode === 13 ? this.doSearch() : ''} />
-                            <i onClick={this.clearSearch} className="glyphicon glyphicon-remove clear-icon"></i>
-                        </span>
-                    </NavItem>
-                </Nav>
-            </Navbar>
+        return ( 
+            <nav className="navbar navbar-default">
+                <div className="container">
+                    <div className="navbar-header">
+                        <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-top" aria-expanded="false">
+                            <span className="sr-only">Toggle navigation</span>
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                        </button>
+                        <a className="navbar-brand" href={undefined}>natramm</a>
+                    </div>
+
+                    <div className="collapse navbar-collapse" id="navbar-top">
+                        <ul className="nav navbar-nav navbar-right">
+                            <li className="input-search-wrapper">
+                                <i className="glyphicon glyphicon-search search-icon"></i>
+                                <input type="text" className="search-input" placeholder="Pesquisar" value={this.state.search} onChange={this.handleChange} onKeyDown={e => e.keyCode === 13 ? this.doSearch() : ''} />
+                                <i onClick={this.clearSearch} className="glyphicon glyphicon-remove-sign clear-icon"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         );
     }
 }

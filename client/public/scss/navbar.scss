@@ -3,7 +3,7 @@
 .navbar {
     width: 100%;
     background-color: #fcfcfc;
-    margin-bottom: 0px;
+    margin-bottom: 0px;    
 
     .container {
         @extend %container-config;
@@ -16,48 +16,40 @@
     }
 
     .navbar-nav { 
+        width: 25%;
+
         li {
-            a,
-            a:hover {
-                color: $text-default-color !important;
-            }
-        }
-    }
-
-    .nav-right {
-        width: 30%;
-
-        > li {
             width: 100%;
+            min-height: 50px;
+            color: $text-aux-color;
         }
     }
 
     .input-search-wrapper {
-        width: 100%;
-        float: right;
 
         .search-input {
             border: $border-input;
             width: 100%;
             border-radius: 20px;
             padding-left: 25px;
+            margin-top: 12px;
+            color: $text-aux-color;
         }
 
         .search-input:focus,
         .search-input:hover {
-            color: initial;
             outline: none;
             box-shadow: none;
         }
 
         .search-icon {
             @extend %input-icon-position;
-            transform: translate(10px, 5px);            
+            transform: translateX(10px);            
         }
 
         .clear-icon {
             @extend %input-icon-position;
-            transform: translate(-20px, 5px);              
+            transform: translateX(-20px);              
         }
     }
 }
