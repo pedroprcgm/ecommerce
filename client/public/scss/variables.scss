@@ -4,11 +4,12 @@ $border-input: 1px solid #ececec;
 %input-icon-position {
     font-size: 12px;
     position: absolute;
-    top: 50%;
+    top: 36%;
 }
 
-$text-default-color: #cacaca;
-$text-main-color: #000;
+$text-default-color: #e8e7e7;
+$text-main-color: #1d1c1c;
+$text-aux-color: #c9c9c9;
 
 %container-config {
     width: 95vw;
