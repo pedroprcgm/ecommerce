@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NumberFormat from 'react-number-format';
 
 class ProductItem extends Component {
 
@@ -19,9 +20,9 @@ class ProductItem extends Component {
                 </div>
                 <div className="col-xs-6 col-sm-3">
                     <div className="price-wrapper">
-                        <span className="old-price">R${this.props.item.price}</span>
+                        <NumberFormat className="old-price" decimalScale={2} fixedDecimalScale={true} value={this.props.item.price} displayType={'text'} decimalSeparator={','} thousandSeparator={'.'} prefix={'R$'} />
                         &nbsp;por&nbsp;
-                        <span className="promo-price">R${this.props.item.promoPrice}</span>
+                        <NumberFormat className="promo-price" decimalScale={2} fixedDecimalScale={true} value={this.props.item.promoPrice} displayType={'text'} decimalSeparator={','} thousandSeparator={'.'} prefix={'R$'} />
                     </div>
                 </div>
             </li>
