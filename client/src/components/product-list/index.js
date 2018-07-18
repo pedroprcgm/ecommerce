@@ -23,6 +23,7 @@ class ProductList extends Component {
         this.getProducts = this.getProducts.bind(this);
         this.applySearch = this.applySearch.bind(this);
         this.onPageChange = this.onPageChange.bind(this);
+        this.handleChangeSelect = this.handleChangeSelect.bind(this);
     }
 
     componentDidMount() {
@@ -62,6 +63,14 @@ class ProductList extends Component {
         }, this.getProducts);
     }
 
+    handleChangeSelect(event) {
+        event.persist();
+        this.setState(state => {
+            state.pageControl.size = event.target.value;
+            return state;
+        }, this.getProducts);
+    }
+
     render() {
         return (
             <div className="product-list-wrapper">
@@ -79,14 +88,27 @@ class ProductList extends Component {
                                 }
                             </ListGroup>
 
-                            <Pagination activePage={this.state.pageControl.current}
-                                itemsCountPerPage={this.state.pageControl.size}
-                                totalItemsCount={this.state.total}
-                                pageRangeDisplayed={DEFAULT_PAGE_SHOW}
-                                onChange={this.onPageChange}
-                            />
-
                         </div>
+
+                        {
+                            this.state.products.length
+                                ? 
+                                    <div>
+                                        <select className="page-size-footer" onChange={this.handleChangeSelect}>
+                                            <option selected value="24">24 produtos por página</option>
+                                            <option value="36">36 produtos por página</option>
+                                            <option value="48">48 produtos por página</option>
+                                        </select>
+                                        
+                                        <Pagination activePage={this.state.pageControl.current}
+                                            itemsCountPerPage={this.state.pageControl.size}
+                                            totalItemsCount={this.state.total}
+                                            pageRangeDisplayed={DEFAULT_PAGE_SHOW}
+                                            onChange={this.onPageChange}
+                                        />
+                                    </div>   
+                                : ''                
+                        }
                     </div>
                 </div>
             </div>

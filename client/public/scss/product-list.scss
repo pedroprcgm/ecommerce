@@ -1,7 +1,7 @@
 @import 'variables.scss';
 
 .product-list-wrapper {
-    background-color: #f7f7f7;
+    background-color: #e8e7e7;
     min-height: calc(100vh - 52px - 79px);
 
     .container {
@@ -12,7 +12,7 @@
 
     .product-count {
         display: inline-block;
-        color: $text-default-color;        
+        color: $text-main-color;        
         padding-bottom: 7px;
         border-bottom: 2px solid #e6d2a6;
         margin-bottom: 35px;
@@ -21,18 +21,32 @@
         text-transform: uppercase; 
     }
 
+    .page-size-footer {
+        margin: 20px 0;
+        padding: 15px 40px;
+        background-color: #fff;
+        height: 3em;
+        width: 16em;
+        color: $text-main-color;
+        border: none;
+    }
+    .page-size-footer:focus {
+        outline: none;
+    }
+
     .pagination {
         float: right;
+        height: 3em;
 
         li a {
-            color: $text-default-color;
+            color: $text-main-color;
             background-color: transparent;            
             border: none;
             border: 1px solid transparent;
         }
         
         li:not(.disabled):not(.active) a:hover {
-            color: $text-default-color;
+            color: $text-main-color;
             background-color: #fff;
             border-color: #fff;
         }
@@ -43,12 +57,12 @@
         }
         li.active a:hover,
         li.active a:focus, {
-            color: $text-default-color;
+            color: $text-main-color;
         }
 
         li.disabled a,
         li.disabled a:hover {
-            color: #e6e4e4;
+            color: #c5c5c5;
             background-color: transparent;
             border-color: transparent;
         }
