@@ -1,18 +1,18 @@
 module.exports = [
     {
-        name: 'Toalhas de mesa',
+        name: 'Classic',
         description: 'Fio egípcio'
     },
     {
-        name: 'Toalhas de mesa',
+        name: 'Classic I',
         description: 'Comuns'
     },
     {
-        name: 'Toalhas de banho',
+        name: 'Classic I',
         description: 'Fio egípcio'
     },
     {
-        name: 'Toalhas de banho',
+        name: 'Classic',
         description: 'Comuns'
     }
 ];
