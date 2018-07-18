@@ -4,6 +4,14 @@ import NumberFormat from 'react-number-format';
 class ProductItem extends Component {
 
     render() {
+        let priceSection,
+            text; 
+
+        if(this.props.item.promoPrice){
+            priceSection = <NumberFormat className="old-price" decimalScale={2} fixedDecimalScale={true} value={this.props.item.price} displayType={'text'} decimalSeparator={','} thousandSeparator={'.'} prefix={'R$'} />;
+            text = ' por ';
+        }        
+
         return (
             <li className="product-item row">
                 <div className="col-xs-6 col-sm-9">
@@ -20,8 +28,8 @@ class ProductItem extends Component {
                 </div>
                 <div className="col-xs-6 col-sm-3">
                     <div className="price-wrapper">
-                        <NumberFormat className="old-price" decimalScale={2} fixedDecimalScale={true} value={this.props.item.price} displayType={'text'} decimalSeparator={','} thousandSeparator={'.'} prefix={'R$'} />
-                        &nbsp;por&nbsp;
+                        {priceSection ? priceSection : ''}               
+                        {priceSection ? text : ''}
                         <NumberFormat className="promo-price" decimalScale={2} fixedDecimalScale={true} value={this.props.item.promoPrice} displayType={'text'} decimalSeparator={','} thousandSeparator={'.'} prefix={'R$'} />
                     </div>
                 </div>

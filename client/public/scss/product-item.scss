@@ -6,7 +6,6 @@ $item-content-height: calc( #{$item-height} - #{$item-padding} * 2);
 
 .product-item {
     list-style: none;
-    width: 100%;
     background-color: #fff;    
     padding: $item-padding;
     height: $item-height;
@@ -36,7 +35,7 @@ $item-content-height: calc( #{$item-height} - #{$item-padding} * 2);
         }
 
         .item-description {
-            color: $text-default-color;
+            color: $text-aux-color;
         }
     }
 
@@ -47,7 +46,7 @@ $item-content-height: calc( #{$item-height} - #{$item-padding} * 2);
         float: right;
 
         .old-price {
-            color: $text-default-color;
+            color: $text-aux-color;
             text-decoration: line-through;
         }
         
