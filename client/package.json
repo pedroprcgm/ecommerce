@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "gulp sass && react-scripts start",
-    "start-prod": "gulp sass && react-scripts build && pm2 start server.js",
+    "start-prod": "gulp sass && react-scripts build && pm2 start client-server.js",
     "compile-scss": "gulp sass",
     "compile-scss-w": "gulp sass:watch",
     "build": "react-scripts build",
