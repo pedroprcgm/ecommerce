@@ -8,6 +8,7 @@
     "dev": "NODE_ENV='development' nodemon server.js",
     "start": "node server.js",
     "start-prod": "pm2 start server.js",
+    "stop-prod": "pm2 stop server.js",
     "seed": "./node_modules/sequelize-cli/lib/sequelize db:seed:all",
     "migrate": "./node_modules/sequelize-cli/lib/sequelize db:migrate"
   },
