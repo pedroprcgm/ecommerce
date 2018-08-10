@@ -1,25 +1,26 @@
 {
-  "name": "calendar-api",
+  "name": "ecommerce-api",
   "version": "1.0.0",
-  "description": "API REST for Calendar application",
+  "description": "API REST for Ecommerce application",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_ENV='development' nodemon server.js",
     "start": "node server.js",
+    "start-prod": "pm2 start server.js",
     "seed": "./node_modules/sequelize-cli/lib/sequelize db:seed:all",
     "migrate": "./node_modules/sequelize-cli/lib/sequelize db:migrate"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pedroprcgm/calendar.git"
+    "url": "git+https://github.com/pedroprcgm/ecommerce.git"
   },
   "author": "Pedro Guerreiro",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pedroprcgm/calendar/issues"
+    "url": "https://github.com/pedroprcgm/ecommerce/issues"
   },
-  "homepage": "https://github.com/pedroprcgm/calendar#readme",
+  "homepage": "https://github.com/pedroprcgm/ecommerce#readme",
   "dependencies": {
     "bcrypt": "^2.0.1",
     "chai": "^4.1.2",
